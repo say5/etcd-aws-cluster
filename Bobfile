@@ -1,16 +1,21 @@
----
-version: 1
+version = 1
 
-docker:
-  build_opts: [ "--rm" ]
-  tag_opts: [ "--force" ]
+[docker]
+build_opts = [
+  "--rm",
+  "--no-cache"
+]
+tag_opts = ["--force"]
 
-container_globals:
-  registry: "https://registry.staging.perksops.net:5000"
-  tags: [ "{{ branch }}", "{{ sha }}", "{{ tag }}" ]
+[container_globals]
+registry = "https://registry.staging.perksops.net:5000"
+tags = [
+  "git:branch",
+  "git:sha",
+  "git:tag"
+]
 
-container:
-- name: "etcd-aws-cluster"
-  Dockerfile: "Dockerfile"
-  project: "etcd-aws-cluster"
-  tags: [ "base-{{ date `2006-01-02` }}" ]
+[[container]]
+name = "etcd-aws-cluster"
+Dockerfile = "Dockerfile"
+project = "etcd-aws-cluster"
