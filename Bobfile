@@ -8,7 +8,7 @@ build_opts = [
 tag_opts = ["--force"]
 
 [container_globals]
-registry = "https://registry.staging.perksops.net:5000"
+registry = "registry.staging.perksops.net:5000"
 tags = [
   "git:branch",
   "git:sha",
