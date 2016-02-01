@@ -150,6 +150,11 @@ EOF
 
 # otherwise I was already listed as a member so assume that this is a new cluster
 else
+    if [[ $PROXY_ASG ]]; then
+        # it can't a new cluster
+        echo "ERROR: Host is in proxy mode and can't be a member"
+        exit 9
+    fi
     # create a new cluster
     echo "creating new cluster"
 

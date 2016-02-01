@@ -1,0 +1,16 @@
+---
+# Bobfile
+version: 1 # this is required, or your Bobfile may be parsed incorrectly
+
+docker:
+  build_opts: [ "--rm" ]
+  tag_opts: [ "--force" ]
+
+container_globals:
+  registry: "https://registry.staging.perksops.net:5000"
+  tags: [ "{{ branch }}", "{{ sha }}", "{{ tag }}" ]
+
+container:
+- name: "etcd-aws-cluster"
+  Dockerfile: "Dockerfile"
+  tags: [ "base-{{ date `2006-01-02` }}" ]
