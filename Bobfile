@@ -1,4 +1,3 @@
----
 # Bobfile
 version: 1 # this is required, or your Bobfile may be parsed incorrectly
 
